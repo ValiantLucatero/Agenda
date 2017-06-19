@@ -1,0 +1,26 @@
+{
+  "name": "agenda",
+  "version": "1.0.0",
+  "description": "Agenda electronica",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ValiantLucatero/Agenda.git"
+  },
+  "keywords": [
+    "agenda"
+  ],
+  "author": "ValiantLucatero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ValiantLucatero/Agenda/issues"
+  },
+  "homepage": "https://github.com/ValiantLucatero/Agenda#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "readline": "^1.3.0"
+  }
+}
