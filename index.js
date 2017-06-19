@@ -1,4 +1,3 @@
-//const async = require('async');
 const readline = require('readline');
 const fs = require('fs');
 
@@ -23,34 +22,36 @@ input.on('line', (line) => {
   }
   else if (line.substring(0, 9) == 'add event') {
     info = line.substring(10);
-    fs.appendFile('save.txt', info + "\n", (err) => {
+    fs.appendFile('save.txt', "\n" + info, (err) => {
       if (err) throw err;
       console.log("Se ha agregado el evento");
+      input.prompt();
     });
-    input.prompt();
   }
   else if (line.substring(0, 11) == 'erase event') {
     name = line.substring(12);
     fs.readFile('save.txt', 'utf-8', (err, data) => {
       if (err) throw err;
-      data_array = data.split('\n')
-      search = () => {
-          for (var i = data_array.length - 1; i > -1; i--)
-          if (data_array[i].match(name))
-              return i;
-      }
-      delete data_array[search];
-      save = data_array.join('\n');
-      fs.writeFile('save.txt', save);
+      data_array = data.split('\n');
+      for (var i = 0; i < data_array.length; i++)
+        if (data_array[i].match(name))
+          delete data_array[i];
+      save = data_array.join('\n').trim();
+      fs.writeFile('save.txt', save, (err) => {
+        if (err) throw err;
+        console.log('El evento se ha borrado');
+        input.prompt();
+      });
     });
-    input.prompt();
   }
   else if (line == 'show events') {
     fs.readFile('save.txt', 'utf-8', (err, data) => {
-      if (err) throw err;
-      console.log(data);
+      if(!data||err)
+        console.log("No tienes eventos");
+      else
+        console.log(data.trim());
+      input.prompt();
     });
-    input.prompt();
   }
   else {
     console.log("Ups! No se que es eso 0.o\nPara ver que puedes hacer intenta el comando help");
