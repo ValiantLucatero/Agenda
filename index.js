@@ -17,7 +17,7 @@ input.on('line', (line) => {
   }
   else if (line == 'help')
   {
-    console.log("Hola! Soy tu nueva agenda electrónica, puedo realizar varias funciones dependiendo de lo que escribas en la linea de comandos, por ejemplo:\n-add event {nombre, fecha, hora}  //(crea un nuevo evento con los datos que tu proporciones)\n-erase event {nombre}  //(elimina el evento que menciones)\n-show events  //(muestra todos los eventos guardados)");
+    console.log("Hola! Soy tu nueva agenda electrónica, puedo realizar varias funciones dependiendo de lo que escribas en la linea de comandos, por ejemplo:\n-add event {nombre, fecha, hora}  //(crea un nuevo evento con los datos que tu proporciones)\n-erase event {nombre}  //(elimina el evento que menciones)\n-show events  //(muestra todos los eventos guardados)\n-exit  //(cierra la aplicación)");
     input.prompt();
   }
   else if (line.substring(0, 9) == 'add event') {
