@@ -1,6 +1,7 @@
 {
   "name": "agenda",
   "version": "1.0.0",
+  "type": "module",
   "description": "Agenda electronica",
   "main": "index.js",
   "scripts": {
